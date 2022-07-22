@@ -53,7 +53,7 @@ public class Ticketsv4 {
     }
 
     public static float percentage(int rows, int seats) {
-        return (tickets * 100) / (rows * seats);
+        return (float)(tickets * 100) / (rows * seats);
     }
 
     public static int gananciasTotales(int rows, int seats) {
@@ -95,9 +95,10 @@ public class Ticketsv4 {
                         int chosenRow = scanner.nextInt();
                         System.out.println("Enter a seat number in that row:");
                         int chosenSeat = scanner.nextInt();
-                        if (chosenRow <= rows || chosenSeat <= seats) {
+                        if (chosenRow <= rows && chosenSeat <= seats) {
                             if (cinema[chosenRow - 1][chosenSeat - 1] == "B") {
                                 System.out.println("That ticket has already been purchased!");
+                                repeat2=true;
                             } else {
                                 cinema[chosenRow - 1][chosenSeat - 1] = "B";
                                 int precioBoleto = calcularPrecioBoleto(rows, seats, chosenRow);
